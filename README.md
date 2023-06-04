@@ -1,7 +1,7 @@
 #Development
 ============
 
-#04.06.2023
+04.06.2023
 syncing repositories
 
 # Flask_app
