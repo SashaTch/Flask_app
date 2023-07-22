@@ -9,6 +9,6 @@ def client():
         yield client
 
 def test_home(client):
-    response = client.get('/')
+    response = client.get('/login')
     assert response.status_code == 200
-    assert response.data == b'Hello, World!'
+    assert response.data == b'username,password'
