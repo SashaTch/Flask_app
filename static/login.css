@@ -1,263 +1,46 @@
-/* Desktop 1 */
-
-position: relative;
-width: 1920px;
-height: 1080px;
-
-
-
-/* BG */
-
-position: absolute;
-width: 1920px;
-height: 1080px;
-left: 0px;
-top: 0px;
-
-background: linear-gradient(252.44deg, rgba(0, 133, 255, 0.1) 11.85%, rgba(220, 112, 255, 0.1) 100%), url(image.png), #000000;
-
-
-/* Login Window */
-
-position: absolute;
-width: 448px;
-height: 416px;
-left: calc(50% - 448px/2);
-top: calc(50% - 416px/2 + 127px);
-
-background: rgba(255, 255, 255, 0.03);
-mix-blend-mode: normal;
-box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(40px);
-/* Note: backdrop-filter has minimal browser support */
-border-radius: 40px;
-
-
-/* Rectangle 1 */
-
-position: absolute;
-width: 138.31px;
-height: 40px;
-left: 811px;
-top: 762px;
-
-
-
-/* Rectangle 1 */
-
-position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0%;
-
-background: rgba(255, 255, 255, 0.1);
-mix-blend-mode: normal;
-border-radius: 10px;
-
-
-/* Sign up */
-
-position: absolute;
-width: 54.92px;
-height: 0px;
-right: 41.69px;
-top: 20.49px;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 200;
-font-size: 16px;
-line-height: 0px;
-/* identical to box height, or 0% */
-text-align: center;
-
-color: #B1B1B1;
-
-mix-blend-mode: normal;
-
-
-/* Rectangle 2 */
-
-position: absolute;
-width: 138.31px;
-height: 40px;
-left: 972.69px;
-top: 762px;
-
-
-
-/* Rectangle 2 */
-
-position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0%;
-
-background: rgba(255, 255, 255, 0.3);
-mix-blend-mode: normal;
-border-radius: 10px;
-
-
-/* Sign In */
-
-position: absolute;
-width: 50.85px;
-height: 0px;
-right: 43.73px;
-top: 20.49px;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 200;
-font-size: 16px;
-line-height: 0px;
-/* identical to box height, or 0% */
-text-align: center;
-
-color: #FFFFFF;
-
-mix-blend-mode: normal;
-
-
-/* User profil */
-
-position: absolute;
-width: 172.73px;
-left: calc(50% - 172.73px/2 + 0.36px);
-top: 18.89%;
-bottom: 62.59%;
-
-background: url(image.png);
-border-radius: 22px;
-
-
-/* Rectangle 3 */
-
-position: absolute;
-visibility: hidden;
-width: 300px;
-height: 50px;
-left: calc(50% - 300px/2);
-top: 559px;
-
-border: 1px solid rgba(255, 255, 255, 0.5);
-border-radius: 15px;
-
-
-/* Rectangle 4 */
-
-position: absolute;
-visibility: hidden;
-width: 300px;
-height: 50px;
-left: calc(50% - 300px/2);
-top: 664px;
-
-border: 1px solid rgba(255, 255, 255, 0.5);
-border-radius: 15px;
-
-
-/* Line-Password */
-
-position: absolute;
-width: 300px;
-height: 1px;
-left: 811px;
-top: 711px;
-
-
-
-/* Line 2 */
-
-position: absolute;
-left: 0%;
-right: 0%;
-top: 100%;
-bottom: 0%;
-
-border: 1px solid rgba(255, 255, 255, 0.5);
-transform: rotate(-0.19deg);
-
-
-/* Password : */
-
-position: absolute;
-width: 99px;
-height: 23px;
-right: 183px;
-top: -30px;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 200;
-font-size: 20px;
-line-height: 23px;
-letter-spacing: 0.02em;
-
-color: rgba(255, 255, 255, 0.5);
-
-mix-blend-mode: normal;
-
-
-/* Vector */
-
-position: absolute;
-width: 13.6px;
-height: 17.21px;
-right: 16.32px;
-top: -31.01px;
-
-border: 1.5px solid #FFFFFF;
-
-
-/* Line-Username */
-
-position: absolute;
-width: 300px;
-height: 1px;
-left: 811px;
-top: 606px;
-
-
-
-/* Line 1 */
-
-position: absolute;
-left: 0%;
-right: 0%;
-top: 100%;
-bottom: 0%;
-
-border: 1px solid rgba(255, 255, 255, 0.5);
-transform: rotate(-0.19deg);
-
-
-/* Username : */
-
-position: absolute;
-width: 103px;
-height: 23px;
-right: 179px;
-top: -30px;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 200;
-font-size: 20px;
-line-height: 23px;
-letter-spacing: 0.02em;
-
-color: rgba(255, 255, 255, 0.5);
-
-mix-blend-mode: normal;
-
-
-/* Vector */
-
-position: absolute;
-width: 13.6px;
-height: 17.21px;
-right: 16.32px;
-top:
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+input[type=submit] {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #007B9A;
+}
+
+.error {
+    color: red;
+}
