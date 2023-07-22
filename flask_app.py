@@ -25,7 +25,7 @@ def login_submit():
         return redirect(url_for('profile'))
     else:
         return render_template('login.html', error='Invalid credentials. Please try again.')
-
+"""
 # Profile route
 @app.route('/profile')
 def profile():
@@ -36,7 +36,7 @@ def profile():
     else:
         # If the user is not logged in, redirect to the login page
         return redirect(url_for('login'))
-
+"""
 # Logout route
 @app.route('/logout')
 def logout():
