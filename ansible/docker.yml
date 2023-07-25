@@ -1,0 +1,28 @@
+---
+- hosts: tag_environment_flask
+  become: yes
+  tasks:
+    - name: Install required system packages
+      yum:
+        name: yum-utils
+        state: present
+
+    - name: Add Docker Repository
+      yum_repository:
+        name: Docker-ce-stable
+        baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+        enabled: yes
+        gpgcheck: yes
+        gpgkey: https://download.docker.com/linux/centos/gpg
+
+    - name: Install Docker
+      yum:
+        name: docker-ce
+        state: present
+
+    - name: Ensure Docker service is started and enabled to start at boot
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
