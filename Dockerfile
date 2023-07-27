@@ -7,7 +7,7 @@ WORKDIR /app
 COPY  . /app
 
 # install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # define the port number the container should expose
 EXPOSE 5000
