@@ -5,7 +5,7 @@ WORKDIR /app
 
 # copy all the files to the container
 COPY  . /app
-
+RUN ls -la /app
 # install dependencies
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
