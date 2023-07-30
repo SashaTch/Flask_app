@@ -30,6 +30,7 @@ case "$stage" in
                 ;;
         deploy_docker)
                 #deploy using docker
+                echo "BUILD_NUMBER is ${BUILD_NUMBER}"
                 ssh -i $ssh_key ec2-user@$ip "docker pull sashatchern/flask:v${env.BUILD_NUMBER}"
                 ;;
         test)
