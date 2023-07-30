@@ -59,22 +59,20 @@
         name: dnf-plugins-core
         state: latest
 
-    - name: Add Docker repository
-      command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-
     - name: Install Docker
       dnf:
-        name: "{{ item }}"
+        name: docker
         state: latest
-      loop:
-        - docker-ce 
-        - docker-ce-cli 
-        - containerd.io 
-        - docker-buildx-plugin 
-        - docker-compose-plugin
-
+     
     - name: Start Docker service
       systemd:
         name: docker
         state: started
         enabled: yes
+
+    - name: Add ec2-user to docker group
+      user:
+        name: ec2-user
+        groups: docker
+        append: yes
+      become: yes
