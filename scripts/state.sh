@@ -1,4 +1,4 @@
-#!/bin/bash
+/#!/bin/bash
 
 #arguments
 stage=$1 #cicd stage
@@ -37,7 +37,7 @@ case "$stage" in
         test)
                 #tests
                 curl $ip:5000
-                ssh -i $ssh_key ec2-user@ip "docker stop /$(cat container_id.txt)"
+                ssh -i $ssh_key ec2-user@ip "docker stop /$(cat /home/ec2-user/container_id.txt)"
                 ssh -i $ssh_key ec2-user@ip "sudo rm -f /home/ec2-user/container_id.txt"
                 ;;
         *)
