@@ -1,4 +1,4 @@
-/#!/bin/bash
+#!/bin/bash
 
 #arguments
 stage=$1 #cicd stage
