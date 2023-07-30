@@ -32,6 +32,7 @@ case "$stage" in
                 #deploy using docker
                 echo "BUILD_NUMBER is ${BUILD_NUMBER}"
                 ssh -i $ssh_key ec2-user@$ip "docker pull sashatchern/flask:v${BUILD_NUMBER}"
+                ssh -i $ssh_key ec2-user@$ip 'docker image ls --format "{{.ID}}" sashatchern/flask --filter "dangling=false" | awk "NR>1" | xargs -I {} docker image rm -f {}'
                 ssh -i $ssh_key ec2-user@$ip "docker run -d -p 5000:5000 sashatchern/flask:v${BUILD_NUMBER} > container_id.txt"
                 ;;
         test)
