@@ -31,6 +31,7 @@ case "$stage" in
         deploy_docker)
                 #deploy using docker
                 ssh -i $ssh_key ec2-user@$ip "docker pull sashatchern/flask:v${env.BUILD_NUMBER}"
+                ;;
         test)
                 #tests
                 curl $ip:5000
