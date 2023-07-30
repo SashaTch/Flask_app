@@ -28,6 +28,9 @@ case "$stage" in
                 ssh -i $ssh_key ec2-user@$ip "tar -xzf app.tar.gz && cd Flask_app && tmux new-session -d -s gunicorn_session 'nohup gunicorn -b 0.0.0.0:5000 flask_app:app'"
                 #ssh -i $ssh_key ec2-user@$ip temux attach-session -t gunicorn_session #reatach the gunicorn terminal session to view logs
                 ;;
+        deploy_docker)
+                #deploy using docker
+                ssh -i $ssh_key ec2-user@$ip "docker pull sashatchern/flask:v${env.BUILD_NUMBER}"
         test)
                 #tests
                 curl $ip:5000
