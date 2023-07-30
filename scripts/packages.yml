@@ -64,9 +64,9 @@
 
     - name: Install Docker
       yum:
-        name: "{{ items }}"
+        name: "{{ item }}"
         state: present
-          items:
+          loop:
             - docker-ce 
             - docker-ce-cli 
             - containerd.io 
