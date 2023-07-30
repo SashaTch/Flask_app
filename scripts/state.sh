@@ -37,7 +37,8 @@ case "$stage" in
         test)
                 #tests
                 curl $ip:5000
-                ssh -i $ssh_key ec2-user@ip "docker stop /$(cat container_id.txt) && sudo rm -f container_id.txt"
+                ssh -i $ssh_key ec2-user@ip "docker stop /$(cat container_id.txt)"
+                ssh -i $ssh_key ec2-user@ip "sudo rm -f container_id.txt"
                 ;;
         *)
                 echo "invalid input for stage, please use state/deploy/test."
