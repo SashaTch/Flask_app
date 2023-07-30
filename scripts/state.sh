@@ -32,12 +32,12 @@ case "$stage" in
                 #deploy using docker
                 echo "BUILD_NUMBER is ${BUILD_NUMBER}"
                 ssh -i $ssh_key ec2-user@$ip "docker pull sashatchern/flask:v${BUILD_NUMBER}"
-                ssh -i $ssh_key ec2-user@$ip "CONTAINER_ID=$(docker run -d -p 5000:5000 sashatchern/flask:v${BUILD_NUMBER})"
+                ssh -i $ssh_key ec2-user@$ip "docker run -d -p 5000:5000 sashatchern/flask:v${BUILD_NUMBER} > container_id.txt"
                 ;;
         test)
                 #tests
                 curl $ip:5000
-                ssh -i $ssh_key ec2-user@ip "docker stop ${CONTAINER_ID}"
+                ssh -i $ssh_key ec2-user@ip "docker stop /$(cat container_id.txt) && sudo rm -f container_id.txt"
                 ;;
         *)
                 echo "invalid input for stage, please use state/deploy/test."
