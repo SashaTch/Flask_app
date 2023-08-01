@@ -9,7 +9,7 @@
     <div class="Rectangle_L">
         <div class="PolygonGroup">
             {% for i in range(0, 8) %}
-                {% include 'polygon.html' %}
+                {% include 'polygon.html' with rotation=i*10 %}
             {% endfor %}
         </div>
     </div>
