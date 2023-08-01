@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder='static')
 app.secret_key = 'your_secret_key'  # Replace with a secret key for session management
 
 # Login route
@@ -25,6 +25,7 @@ def login_submit():
         return redirect(url_for('profile'))
     else:
         return render_template('login.html', error='Invalid credentials. Please try again.')
+        
 """
 # Profile route
 @app.route('/profile')
@@ -36,12 +37,12 @@ def profile():
     else:
         # If the user is not logged in, redirect to the login page
         return redirect(url_for('login'))
-"""
 # Logout route
 @app.route('/logout')
 def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
+"""
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
