@@ -11,9 +11,13 @@ body, html {
   width: 1920px;
   height: 1080px;
   background: 
+    url('BG.png'), 
     linear-gradient(0deg, black 0%, black 100%), 
     linear-gradient(252deg, rgba(0, 132.60, 255, 0.10) 12%, rgba(220, 112, 255, 0.10) 100%);
+  background-size: cover; 
+  background-blend-mode: multiply; 
 }
+
 
 .desktop1 {
     width: 522px;
