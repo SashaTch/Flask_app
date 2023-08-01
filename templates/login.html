@@ -7,7 +7,11 @@
 <body>
     <div class="Bg"></div>
     <div class="Rectangle_L">
-        <div class="PolygonGroup"></div>
+        <div class="PolygonGroup">
+            {% for i in range(0, 8) %}
+                {% include 'polygon.html' %}
+            {% endfor %}
+        </div>
     </div>
 </body>
 </html>
