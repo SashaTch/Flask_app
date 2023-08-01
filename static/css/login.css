@@ -3,7 +3,7 @@
   height: 1080px;
   background: 
     linear-gradient(225deg, rgba(0, 133, 255, 0.10) 11.85%, rgba(220, 112, 255, 0.10) 100%), 
-    url('BG.png'), 
+    url('../images/BG.png'), 
     linear-gradient(0deg, black 0%, black 100%), 
     linear-gradient(252deg, rgba(0, 132.60, 255, 0.10) 12%, rgba(220, 112, 255, 0.10) 100%);
   background-size: cover;
@@ -24,12 +24,3 @@
   background: white;
 }
 
-.polygon-0 { transform: rotate(0deg); }
-.polygon-10 { transform: rotate(10deg); }
-.polygon-20 { transform: rotate(20deg); }
-.polygon-30 { transform: rotate(30deg); }
-.polygon-40 { transform: rotate(40deg); }
-.polygon-50 { transform: rotate(50deg); }
-.polygon-60 { transform: rotate(60deg); }
-.polygon-70 { transform: rotate(70deg); }
-.polygon-80 { transform: rotate(80deg); }
