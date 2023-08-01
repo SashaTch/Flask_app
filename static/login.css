@@ -23,3 +23,13 @@
   box-shadow: -3px 3px 10px 0px rgba(0, 0, 0, 0.25);
   background: white;
 }
+
+.polygon-0 { transform: rotate(0deg); }
+.polygon-10 { transform: rotate(10deg); }
+.polygon-20 { transform: rotate(20deg); }
+.polygon-30 { transform: rotate(30deg); }
+.polygon-40 { transform: rotate(40deg); }
+.polygon-50 { transform: rotate(50deg); }
+.polygon-60 { transform: rotate(60deg); }
+.polygon-70 { transform: rotate(70deg); }
+.polygon-80 { transform: rotate(80deg); }
