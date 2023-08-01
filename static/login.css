@@ -1,67 +1,25 @@
-body, html {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #000;
-}
-
 .Bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  width: 1920px;
+  height: 1080px;
   background: 
+    linear-gradient(225deg, rgba(0, 133, 255, 0.10) 11.85%, rgba(220, 112, 255, 0.10) 100%), 
     url('BG.png'), 
     linear-gradient(0deg, black 0%, black 100%), 
     linear-gradient(252deg, rgba(0, 132.60, 255, 0.10) 12%, rgba(220, 112, 255, 0.10) 100%);
-  background-size: cover; 
-  background-blend-mode: multiply; 
-  z-index: -1; 
+  background-size: cover;
+  flex-shrink: 0;
 }
 
-.desktop1 {
-    width: 522px;
-    height: 755px;
-    background: #FFF;
-    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 40px;
-    border: 1.50px rgba(28, 77, 106, 0.01) solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
+.Rectangle_P {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 522px;
+  height: 755px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  border: 3px solid rgba(28, 77, 106, 0.01);
+  box-shadow: -3px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  background: white;
 }
-
-.group2 {
-    width: 336px;
-    height: 588px;
-}
-
-.username-label, .password-label {
-    color: #000;
-    font-size: 20px;
-    font-family: 'Yu Gothic', sans-serif;
-    margin-bottom: 10px;
-}
-
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.signin-button {
-    width: 140px;
-    height: 34px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border: 0.50px #22648C solid;
-    color: #22648C;
-    font-size: 20px;
-    font-family: 'Yu Gothic', sans-serif;
-    margin-bottom: 20px;
-}
-
