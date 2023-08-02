@@ -1,26 +1,146 @@
-.Bg {
-  width: 1920px;
-  height: 1080px;
-  background: 
-    linear-gradient(225deg, rgba(0, 133, 255, 0.10) 11.85%, rgba(220, 112, 255, 0.10) 100%), 
-    url('../images/BG.png'), 
-    linear-gradient(0deg, black 0%, black 100%), 
-    linear-gradient(252deg, rgba(0, 132.60, 255, 0.10) 12%, rgba(220, 112, 255, 0.10) 100%);
-  background-size: cover;
-  flex-shrink: 0;
+/* Reset some default styles for the body and the root container */
+body, html {
+    margin: 0;
+    padding: 0;
 }
 
-.Rectangle_L {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 522px;
-  height: 755px;
-  flex-shrink: 0;
-  border-radius: 40px;
-  border: 3px solid rgba(28, 77, 106, 0.01);
-  box-shadow: -3px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  background: white;
+/* Set background properties */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url({{ url_for('static', filename='images/background.jpg') }}) center/cover no-repeat;
 }
 
+/* App container styles */
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Login box styles */
+.Loginbox {
+    width: 550px;
+    height: 680px;
+    padding: 20px 99px 52px 100px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    overflow: hidden;
+    border: 1.5px rgba(28, 77, 106, 0.01) solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Profile image container styles */
+.LoginProfileIco {
+    width: 307px;
+    height: 300px;
+    position: relative;
+}
+
+/* User profile image styles */
+.UserProfil {
+    width: 129.73px;
+    height: 146.38px;
+    left: 87.16px;
+    top: 75.10px;
+    position: absolute;
+    border-radius: 22px;
+    border: 1px #A73EE7 solid;
+}
+
+/* Username and Password prompt container styles */
+.PassUserPrompt {
+    width: 545px;
+    height: 126px;
+    padding: 0 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Username prompt styles */
+.UsernamePrompt, .PasswordPrompt {
+    width: 313px;
+    padding: 10px;
+    border-bottom: 0.5px #22648C solid;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Username and Password label styles */
+.Username, .Password {
+    width: 260px;
+    height: 30px;
+    color: white;
+    font-size: 20px;
+    font-family: "Yu Gothic", sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+/* Icon container styles */
+.PersonIco, .LockIco {
+    width: 24.29px;
+    height: 23.64px;
+    position: relative;
+}
+
+/* Vector (icon) styles */
+.Vector {
+    width: 15.18px;
+    height: 19.21px;
+    left: 4.55px;
+    top: 2.22px;
+    position: absolute;
+    border: 0.75px #22648C solid;
+}
+
+/* Signin and Signup buttons container styles */
+.SignupSigninButtons {
+    width: 549px;
+    height: 184px;
+    padding: 20px 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Signin button styles */
+.SigninButton, .SignupButton {
+    width: 150px;
+    height: 50px;
+    padding: 11px 9px;
+    border-radius: 15px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+}
+
+/* Signin and Signup button text styles */
+.SignIn, .SignUp {
+    width: 82px;
+    height: 27px;
+    color: #22648C;
+    font-size: 20px;
+    font-family: "Yu Gothic", sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}
