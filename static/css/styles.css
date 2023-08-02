@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url({{ url_for('static', filename='images/background.jpg') }}) center/cover no-repeat;
+    background: url({{ url_for('static', filename='images/BG.png') }}) center/cover no-repeat;
 }
 
 /* App container styles */
