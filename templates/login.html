@@ -1,13 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Login Page</title>
 </head>
+
 <body>
-    <div class="Bg"></div>
-    <div class="Rectangle_L">
-       <img class="icon" src="{{ url_for('static', filename='images/Login_Profile') }}" alt="Profile Icon">
+    <div class="App">
+        <div class="Loginbox">
+            <div class="LoginProfileIco">
+                <img class="UserProfil" src="{{ url_for('static', filename='images/user_profile.png') }}" />
+            </div>
+            <div class="PassUserPrompt">
+                <div class="UsernamePrompt">
+                    <div class="Username">Username:</div>
+                    <div class="PersonIco">
+                        <div class="Vector"></div>
+                    </div>
+                </div>
+                <div class="PasswordPrompt">
+                    <div class="Password">Password:</div>
+                    <div class="LockIco">
+                        <div class="Vector"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="SignupSigninButtons">
+                <div class="SigninButton">
+                    <div class="SignIn">Sign In</div>
+                </div>
+                <div class="SignupButton">
+                    <div class="SignUp">Sign Up</div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
