@@ -51,7 +51,7 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 22px;
-    background-image: url({{ url_for('static', filename='images/User_Profile.ico') }}); /* Add background image here */
+    background-image: url({{ url_for('static', filename='images/Login_Profile.ico') }}); /* Add background image here */
     background-size: cover;
 }
 
