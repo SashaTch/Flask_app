@@ -39,6 +39,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     gap: 25px;
+    background-color: lightgray; /* Add background color here */
 }
 
 /* Login profile icon styles */
@@ -49,7 +50,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightgray;
     border-radius: 22px;
 }
 
@@ -143,6 +143,7 @@ body {
     align-items: center;
     gap: 10px;
     display: flex;
+    border: 1.5px rgba(34, 100, 140, 0.4) solid; /* Add border styles here */
 }
 
 /* Signin and Signup button text styles */
