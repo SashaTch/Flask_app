@@ -149,14 +149,14 @@ input[type="text"], input[type="password"] {
 
 /* Signin button styles */
 .SigninButton, .SignupButton {
-    width: 150px;
+    width: 160px;
     height: 50px;
     padding: 11px 9px;
     border-radius: 15px;
     overflow: hidden;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     display: flex;
 }
 .SigninButton {
