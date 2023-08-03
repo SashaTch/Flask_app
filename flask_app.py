@@ -31,7 +31,7 @@ def load_user(user_id):
 @app.route('/')
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('main_page'))
+        return redirect(url_for('main_page.html'))
     return render_template('login.html')
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -45,7 +45,7 @@ def login_submit():
             return render_template('login.html', error='Invalid credentials. Please try again.')
 
         login_user(user)
-        return redirect(url_for('main_page'))
+        return redirect(url_for('main_page.html'))
     return render_template('login.html')
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -68,7 +68,7 @@ def register():
 @app.route('/main_page')
 @login_required
 def main_page():
-    return render_template('profile.html', username=current_user.username)
+    return render_template('main_page.html', username=current_user.username)
 
 @app.route('/logout')
 def logout():
