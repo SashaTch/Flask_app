@@ -10,10 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url({{ url_for('static', filename='images/BG.png') }}); 
-    background-attachment: center;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    background: url({{ url_for('static', filename='images/BG.png') }}), center, 100% 100%, no-repeat;
     background-size: cover;
 }
 
@@ -56,7 +53,6 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 22px;
-    background-image: url({{ url_for('static', filename='images/Login_Profile.ico') }}); /* Add background image here */
     background-size: cover;
 }
 
