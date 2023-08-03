@@ -105,14 +105,6 @@ body {
     background-size: cover;
 }
 
-.PersonIco {
-    background-image: url({{ url_for('static', filename='images/person.ico') }});
-}
-
-.LockIco {
-    background-image: url({{ url_for('static', filename='images/lock.ico') }});
-}
-
 /* Vector (icon) styles */
 .Vector {
     width: 15.18px;
