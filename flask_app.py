@@ -55,7 +55,7 @@ def register():
         password = request.form['password']
 
         if User.query.filter_by(username=username).first() is not None:
-            return render_template('register.html', error='Username already exists.')
+            return render_template('login.html', error='Username already exists.')
 
         user = User(username=username)
         user.set_password(password)
@@ -63,7 +63,7 @@ def register():
         db.session.commit()
 
         return redirect(url_for('login'))
-    return render_template('register.html')
+    return render_template('login.html')
 
 @app.route('/main_page')
 @login_required
