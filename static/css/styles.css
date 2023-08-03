@@ -1,10 +1,9 @@
-/* Reset some default styles for the body and the root container */
 body, html {
     margin: 0;
     padding: 0;
 }
 
-/* Set background properties */
+/* background properties */
 body {
     display: flex;
     justify-content: center;
@@ -14,7 +13,7 @@ body {
 }
 
 
-/* App container styles */
+/* App frame styles */
 .App {
     display: flex;
     flex-direction: column;
@@ -36,13 +35,12 @@ body {
     justify-content: flex-start;
     align-items: center;
     gap: 25px;
-    background-color: lightgray; 
-    position: relative;
-    box-shadow: 0px 0px 0px 3px rgba(28, 77, 106, 0.01) inset, /* This is your inside stroke */
-                0px 4px 4px rgba(0, 0, 0, 0.25); /* This is your drop shadow */
-    border: 1.5px rgba(28, 77, 106, 0.01) solid;
-    mix-blend-mode: pass-through; /* CSS has a blend mode property, but its support and results can be unpredictable */
+    background-color: rgba(255, 255, 255, 0.01); 
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px); 
+    border: 3px solid #1C4D6A; 
 }
+
 
 /* Login profile icon styles */
 .LoginProfileIco {
@@ -64,7 +62,7 @@ body {
     border: 1px #A73EE7 solid;
 }
 
-/* Username and Password prompt container styles */
+/* Password prompt frame styles */
 .PassUserPrompt {
     width: 545px;
     height: 126px;
@@ -137,7 +135,7 @@ body {
     align-items: center;
     gap: 10px;
     display: flex;
-    border: 1.5px rgba(34, 100, 140, 0.4) solid; /* Add border styles here */
+    border: 1.5px rgba(34, 100, 140, 0.4) solid; 
 }
 
 /* Signin and Signup button text styles */
