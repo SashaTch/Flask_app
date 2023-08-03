@@ -167,7 +167,7 @@ input[type="text"], input[type="password"] {
 button[type="submit"] {
     background: transparent;
     border: none;
-    color: rgba(255, 255, 255, 1);
+    color: #22648C;
     font-size: 20px;
     font-family: "Yu Gothic", sans-serif;
     font-weight: 400;
@@ -175,8 +175,8 @@ button[type="submit"] {
 
 /* Signin and Signup button text styles */
 .SignIn, .SignUp {
-    width: 82px;
-    height: 27px;
+    width: 100px;
+    height: 50px;
     color: #22648C;
     font-size: 20px;
     font-family: "Yu Gothic", sans-serif;
