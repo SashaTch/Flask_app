@@ -17,30 +17,26 @@
     <div class="App">
         <div class="Loginbox">
             <div class="LoginProfileIco" style="background-image: url({{ url_for('static', filename='images/Login_Profile.ico') }});"> </div>
-            <div class="PassUserPrompt">
-                <form method="POST" action="/login">
+            <form method="POST" action="/login">
+                <div class="PassUserPrompt">
                     <div class="UsernamePrompt">
                         <div class="PersonIco" style="background-image: url({{ url_for('static', filename='images/person.ico') }});"></div>
-                        <div class="Username">
-                            <input type="text" id="username" name="username" placeholder="Username" required />
-                        </div>
+                        <input type="text" id="username" name="username" class="Username" placeholder="Username:" required />
                     </div>
                     <div class="PasswordPrompt">
                         <div class="LockIco" style="background-image: url({{ url_for('static', filename='images/lock.ico') }});"></div>
-                        <div class="Password">
-                            <input type="password" id="password" name="password" placeholder="Password" required />
-                        </div>
+                        <input type="password" id="password" name="password" class="Password" placeholder="Password:" required />
                     </div>
-                    <div class="SignupSigninButtons">
-                        <div class="SigninButton">
-                            <button type="submit" class="SignIn">Sign In</button>
-                        </div>
-                    </div>
-                </form>
-                <div class="SignupButton">
-                    <div class="SignUp">Sign Up</div>
                 </div>
-            </div>
+                <div class="SignupSigninButtons">
+                    <div class="SigninButton">
+                        <button type="submit" class="SignIn">Sign In</button>
+                    </div>
+                    <div class="SignupButton">
+                       <div class="SignUp">Sign Up</div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </body>
