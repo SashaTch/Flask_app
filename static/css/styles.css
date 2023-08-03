@@ -245,11 +245,19 @@ button[type="submit"] {
     justify-content: center; 
     align-items: center; 
     display: inline-flex;
+
 .LoadingVector {
     width: 80.39px; 
     height: 73.58px; 
     border: 0.75px #E70FC4 solid;
+    animation: spin 2s linear infinite;
 }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .LoadingMessage {
     width: 252px;
     color: #5C5C5C;
