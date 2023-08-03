@@ -10,7 +10,10 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url({{ url_for('static', filename='images/BG.png') }}) center/100% 100% no-repeat;
+    background-image: url({{ url_for('static', filename='images/BG.png') }}); 
+    background-attachment: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     background-size: cover;
 }
 
