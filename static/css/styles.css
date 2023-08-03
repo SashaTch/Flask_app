@@ -101,17 +101,22 @@ body {
     width: 24.29px;
     height: 23.64px;
     background-size: cover;
+    /* added background-repeat and background-position to make sure the image is centered and not repeated */
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /* Vector (icon) styles */
 .Vector {
     width: 15.18px;
     height: 19.21px;
-    left: 4.55px;
+    /* comment out the following lines to see if it affects the visibility of the icons */
+    /*left: 4.55px;
     top: 2.22px;
-    position: absolute;
+    position: absolute; */
     border: 0.75px #22648C solid;
 }
+
 
 /* Signin and Signup buttons container styles */
 .SignupSigninButtons {
