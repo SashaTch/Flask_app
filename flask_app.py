@@ -34,36 +34,31 @@ def login():
         return redirect(url_for('main_page.html'))
     return render_template('login.html')
 
-@app.route('/login', methods=['GET', 'POST'])
-def login_submit():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        user = User.query.filter_by(username=username).first()
+@app.route('/process', methods=['POST'])
+def process():
+    username = request.form['username']
+    password = request.form['password']
+    action = request.form['action']
 
+    if action == "Sign In":
+        user = User.query.filter_by(username=username).first()
         if user is None or not user.check_password(password):
             return render_template('login.html', error='Invalid credentials. Please try again.')
-
         login_user(user)
-        return redirect(url_for('main_page.html'))
-    return render_template('login.html')
+        return redirect(url_for('main_page'))
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-
+    elif action == "Sign Up":
         if User.query.filter_by(username=username).first() is not None:
             return render_template('login.html', error='Username already exists.')
-
         user = User(username=username)
         user.set_password(password)
         db.session.add(user)
         db.session.commit()
+        login_user(user)
+        return redirect(url_for('main_page'))
 
+    else:
         return redirect(url_for('login'))
-    return render_template('login.html')
 
 @app.route('/main_page')
 @login_required
