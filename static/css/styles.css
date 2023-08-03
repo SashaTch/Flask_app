@@ -135,7 +135,9 @@ body {
     align-items: center;
     gap: 10px;
     display: flex;
-    border: 1.5px rgba(34, 100, 140, 0.4) solid; 
+}
+.SigninButton {
+     border: 1.5px rgba(34, 100, 140, 0.4) solid; 
 }
 
 /* Signin and Signup button text styles */
