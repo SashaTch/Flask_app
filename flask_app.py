@@ -15,17 +15,22 @@ def login():
         return render_template('login.html')
 
 # Login form submission route
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login_submit():
-    username = request.form['username']
-    password = request.form['password']
-    
-    # Perform authentication check (dummy check, replace with your actual authentication logic)
-    if username == 'admin' and password == 'password':
-        session['username'] = username
-        return redirect(url_for('main_page'))
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        if username == 'admin' and password == 'password':
+            session['username'] = username
+            return redirect(url_for('main_page'))
+        else:
+            return render_template('login.html', error='Invalid credentials. Please try again.')
     else:
-        return render_template('login.html', error='Invalid credentials. Please try again.')
+        if 'username' in session:
+            return redirect(url_for('main_page'))
+        else:
+            return render_template('login.html')
         
 # Main_page route
 @app.route('/main_page')
