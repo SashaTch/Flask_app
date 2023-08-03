@@ -1,14 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Profile</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h1>Welcome, {{ username }}!</h1>
-        <p>Your profile information goes here.</p>
-        <a href="{{ url_for('logout') }}">Logout</a>
-    </div>
-</body>
-</html>
+    <style>
+        body {
+            background: url({{ url_for('static', filename='images/BG.png') }}), center, 100% 100%, no-repeat;
+        }
+    </style>
