@@ -3,6 +3,13 @@ body, html {
     padding: 0;
 }
 
+/* Form properities */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* background properties */
 body {
     display: flex;
