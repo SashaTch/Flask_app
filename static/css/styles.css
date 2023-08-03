@@ -87,7 +87,7 @@ body {
     padding: 10px;
     border-bottom: 0.5px #22648C solid;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
 }
@@ -167,7 +167,7 @@ input[type="text"], input[type="password"] {
 button[type="submit"] {
     background: transparent;
     border: none;
-    color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 1);
     font-size: 20px;
     font-family: "Yu Gothic", sans-serif;
     font-weight: 400;
