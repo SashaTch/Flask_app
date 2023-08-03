@@ -9,7 +9,7 @@ app.secret_key = 'your_secret_key'  # Replace with a secret key for session mana
 def login():
     if 'username' in session:
         # If the user is already logged in, redirect to the profile page
-        return redirect(url_for('profile'))
+        return redirect(url_for('main_page'))
     else:
         # If the user is not logged in, render the login template
         return render_template('login.html')
@@ -23,13 +23,12 @@ def login_submit():
     # Perform authentication check (dummy check, replace with your actual authentication logic)
     if username == 'admin' and password == 'password':
         session['username'] = username
-        return redirect(url_for('profile'))
+        return redirect(url_for('main_page'))
     else:
         return render_template('login.html', error='Invalid credentials. Please try again.')
         
-"""
-# Profile route
-@app.route('/profile')
+# Main_page route
+@app.route('/main_page')
 def profile():
     if 'username' in session:
         # If the user is logged in, render the profile template
@@ -43,7 +42,6 @@ def profile():
 def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
-"""
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
