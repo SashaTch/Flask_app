@@ -6,7 +6,7 @@ from flask_login import UserMixin, LoginManager, login_user, logout_user, login_
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
 #app.secret_key = 'your_secret_key' 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'  # For demonstration purposes. You should choose a secure persistent storage.
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/sasha/Project'
 
 db = SQLAlchemy(app)
 
