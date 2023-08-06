@@ -6,7 +6,7 @@ from flask_login import UserMixin, LoginManager, login_user, logout_user, login_
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
 app.secret_key = 'your_secret_key' 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://sasha:sasha@DataBaseFlask:5432/UserDataBase'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:sasha@AppDB:5432/pypetdb'
 
 db = SQLAlchemy(app)
 
