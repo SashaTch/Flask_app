@@ -1,0 +1,85 @@
+@Library('Logs_OPT')_
+pipeline {
+    agent any
+    options {
+        ansiColor('xterm')
+    }
+    stages {
+        stage('Cleanup') {
+            steps {
+                script{
+                    logs.echoStage('Cleanup')
+                    logs.echoGreen('cleaning project\'s directory')
+                    sh 'rm -rf ./*'
+                    logs.echoYellow('cleanup of all unused docker containers, images, data')
+                    sh 'docker image ls --format "{{.ID}}" sashatchern/flask --filter "dangling=false" | awk "NR>3" | xargs -I {} docker image rm -f {}'
+                    logs.echoYellow('cleaunp stage has been finished')
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                script{
+                    logs.echoStage("Build the App")
+                    logs.echoGreen('cloning repository')
+                    sh 'git clone https://github.com/SashaTch/Flask_app.git >/dev/null 2>&1' //cloning to workspace
+                    logs.echoYellow('cloned the repo to the workspace')
+                    sh "docker build -f /var/lib/jenkins/workspace/test/Flask_app/Dockerfile -t sashatchern/flask:v${env.BUILD_NUMBER} ." //dockered the file
+                    logs.echoYellow('zipped the app\'directory')
+                    logs.echoGreen('The App is ready for uploading')
+                    logs.echoYellow("Current directory: ${PWD}")
+                    logs.echoYellow("List of files:")
+                    sh 'ls'
+                }
+            }
+        }
+        stage('Upload') {
+            steps {
+                script{
+                    logs.echoStage("Upload to Cloud")
+                    docker.withRegistry('https://index.docker.io/v1/', 'docker') {
+                        sh "docker push sashatchern/flask:v${env.BUILD_NUMBER}"
+                    }
+                    logs.echoGreen('Uploaded to docker succefully')
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script{
+                    logs.echoStage("Testing App")
+                    logs.echoGreen('making ec2 instances online')
+                    logs.echoYellow("testing+deployment server----->")
+                    sh 'chmod +x ./Flask_app/scripts/state.sh'
+                    sh 'bash ./Flask_app/scripts/state.sh state run environment flask /var/lib/jenkins/.ssh/aws_rsa'
+                    logs.echoGreen("TESTING+DEPLOYMENT SERVER----->ONLINE")
+                    logs.aws_credentials("AWS", """
+                    ansible-playbook ./Flask_app/scripts/packages.yml --private-key=/var/lib/jenkins/.ssh/aws_rsa
+                    """)
+                    sh 'bash ./Flask_app/scripts/state.sh deploy_docker run Name Test /var/lib/jenkins/.ssh/aws_rsa'
+                    logs.echoGreen("all packages and app deployed/updated in the test server")
+                    sh 'bash ./Flask_app/scripts/state.sh test run Name Test /var/lib/jenkins/.ssh/aws_rsa'
+                    logs.echoGreen("tests succefull")
+                    logs.echoYellow("shutting test server---> continuing to deployment serve")
+                    sh 'bash ./Flask_app/scripts/state.sh state stop Name Test /var/lib/jenkins/.ssh/aws_rsa'
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script{
+                    logs.echoStage("Deploying app")
+                    sh 'bash ./Flask_app/scripts/state.sh deploy_docker run Name Deployment /var/lib/jenkins/.ssh/aws_rsa'
+                    logs.echoGreen("all packages and app deployed/updated in the test server")
+                    sh 'bash ./Flask_app/scripts/state.sh test run Name Deployment /var/lib/jenkins/.ssh/aws_rsa'
+                    logs.echoGreen("tests succefull and app is online")
+                    sh 'bash ./Flask_app/scripts/state.sh state stop Name Deployment /var/lib/jenkins/.ssh/aws_rsa'
+                }
+            }
+        }
+    }
+}
+
+
+
+
