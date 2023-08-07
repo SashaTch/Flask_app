@@ -1,6 +1,11 @@
+#ignore project side/run files
 ansible  
 docker-compose.yml  
 Dockerfile  
 Jenkinsfile  
 Jenkinsfile_Docker    
-/scripts  
+/scripts
+
+#ignore secret  
+.env
+.gitignore
