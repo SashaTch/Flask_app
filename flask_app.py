@@ -2,11 +2,15 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, LoginManager, login_user, logout_user, login_required, current_user
+import os
+
+db_user=os.getenv('POSTGRES_USER')
+db_password=os.getenv('POSTGRES_PASSWORD')
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
 app.secret_key = 'your_secret_key' 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://sasha:sasha@AppDB:5432/pypetdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@AppDB:5432/pypetdb'.format(db_user, db_password)
 
 db = SQLAlchemy(app)
 

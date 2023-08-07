@@ -25,6 +25,8 @@ services:
     - 5000:5000
     volumes:
     - .:/app
+    env_file:
+    - .env
 volumes:
   db-volume:
     driver: local
