@@ -1,5 +1,5 @@
 version: "3"
-services: 
+services:
   postgres:
     image: postgres
     container_name: AppDB
@@ -9,16 +9,18 @@ services:
     - POSTGRES_DB=${POSTGRES_DB}
     ports:
     - 5432:5432
-    volumes: $HOME/db-volume:/var/lib/postgresql/data
+    volumes:
+    - $HOME/db-volume:/var/lib/postgresql/data
 
   web:
-    image: sashatchern/flask
-    command: python3 flask_app.py
+    build: .
+    command: python3 /app/flask_app.py
     depends_on:
     - postgres
-    ports: 
+    ports:
     - 5000:5000
-    volumes: ./Flask_app:/app
+    volumes:
+    - ./Flask_app:/app
 volumes:
   db-volume:
     driver: local
