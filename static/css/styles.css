@@ -176,7 +176,7 @@ button[type="submit"] {
 }
 
 .WelcomeBox {
-    display: inline-flex;
+    display: flex;
     padding: 17px 28px;
     justify-content: center;
     align-items: center;
@@ -194,7 +194,7 @@ button[type="submit"] {
 }
 
 .LoadingBox {
-    display: inline-flex;
+    display: flex;
     padding: 0px 86px;
     flex-direction: column;
     justify-content: center;
