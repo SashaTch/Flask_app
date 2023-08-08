@@ -2,24 +2,25 @@
 <html lang="en">
 
 <head>
-    <style>
-        body {
-            background: url({{ url_for('static', filename='images/BG.png') }}), center, 100% 100%, no-repeat;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='css/styles.css') }}">
+    <script src="https://kit.fontawesome.com/8869c37802.js" crossorigin="anonymous"></script>
 </head>
     <body>
+	<a href="{{ url_for('logout') }}" class="logout-button">
+   	    <i class="fa-solid fa-right-from-bracket fa-xm"></i>
+	</a>
         <div class="WelcomeUser">
             <div class="WelcomeBox">
                 <div class="WelcomeBanner">"Welcome User"</div>
             </div>
             <div class="LoadingBox">
                 <div class="LoadingIconBox">
-                    <div class="LoadingComponent">
-                        <div class="LoadingVector" style="background-image: url({{ url_for('static', filename='images/loading.ico') }})">
-                            <img src="loading.ico" alt="Loading Icon">
-                        </div>
-                    </div>
+		    <div class="LoadingComponent">
+                       <i class="fa-solid fa-rotate fa-spin fa-4x" style="color: #f207df;"></i>
+		    </div>
                 </div>
                 <div class="LoadingMessage">"Please Wait While Loading Your Page"</div>
             </div>

@@ -35,7 +35,7 @@ def load_user(user_id):
 @app.route('/')
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('main_page.html'))
+        return redirect(url_for('main_page'))
     return render_template('login.html')
 
 @app.route('/process', methods=['POST'])

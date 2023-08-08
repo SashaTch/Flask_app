@@ -2,16 +2,12 @@
 <html lang="en">
 
 <head>
-    <style>
-        body {
-            background: url({{ url_for('static', filename='images/BG.png') }}), center, 100% 100%, no-repeat;
-        }
-    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">   
+<title>Login Page</title>
 </head>
 <body>
     <div class="App">
@@ -20,11 +16,11 @@
             <form method="POST" action="/process">
                 <div class="PassUserPrompt">
                     <div class="UsernamePrompt">
-                        <div class="PersonIco" style="background-image: url({{ url_for('static', filename='images/person.ico') }});"></div>
+                        <i class="fa-solid fa-user fa-lg"></i>
                         <input type="text" id="username" name="username" class="Username" placeholder="Username:" required />
                     </div>
                     <div class="PasswordPrompt">
-                        <div class="LockIco" style="background-image: url({{ url_for('static', filename='images/lock.ico') }});"></div>
+                        <i class="fa-solid fa-lock fa-lg"></i>
                         <input type="password" id="password" name="password" class="Password" placeholder="Password:" required />
                     </div>
                 </div>

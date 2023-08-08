@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Six+Caps&display=swap');
+
+body {
+    background-image: url('../images/BG.png');
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -61,13 +70,6 @@ body {
     background-size: cover;
 }
 
-/* User profile image styles */
-.UserProfil {
-    width: 129.73px;
-    height: 146.38px;
-    border-radius: 22px;
-    border: 1px #A73EE7 solid;
-}
 
 /* Password prompt frame styles */
 .PassUserPrompt {
@@ -92,19 +94,8 @@ body {
     gap: 10px;
 }
 
-/* Username and Password label styles */
-.Username, .Password {
-    width: 260px;
-    height: 30px;
-    color: rgba(255, 255, 255, 0.02);
-    font-size: 20px;
-    font-family: "Yu Gothic", sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
-}
-
 /* Remove default appearance of inputs */
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], .Username, .Password {
     background: transparent;
     border: none;
     outline: none;
@@ -116,24 +107,11 @@ input[type="text"], input[type="password"] {
     font-weight: 400;
 }
 
-/* Icon container styles */
-.PersonIco, .LockIco {
-    width: 24.29px;
-    height: 23.64px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+/* Icon Color */
+.fa-user, .fa-lock {
+    color: #22648c;
 }
 
-/* Vector (icon) styles */
-.Vector {
-    width: 15.18px;
-    height: 19.21px;
-    left: 4.55px;
-    top: 2.22px;
-    position: absolute; 
-    border: 0.75px #22648C solid;
-}
 
 
 /* Signin and Signup buttons container styles */
@@ -185,7 +163,9 @@ button[type="submit"] {
 }
 
 
-/* welcome user page */
+/********** welcome user page **********/
+
+/
 .WelcomeUser {
     display: flex;
     flex-direction: column;
@@ -206,7 +186,7 @@ button[type="submit"] {
 .WelcomeBanner {
     color: #FFF;
     text-align: center;
-    font-family: Six Caps;
+    font-family: "Six Caps", sans-serif;
     font-size: 128px;
     font-style: normal;
     font-weight: 400;
@@ -233,7 +213,7 @@ button[type="submit"] {
     justify-content: flex-start; 
     align-items: center; 
     display: inline-flex;
-  
+}  
     
 .LoadingComponent { 
     width: 107px; 
@@ -245,18 +225,8 @@ button[type="submit"] {
     justify-content: center; 
     align-items: center; 
     display: inline-flex;
-
-.LoadingVector {
-    width: 80.39px; 
-    height: 73.58px; 
-    border: 0.75px #E70FC4 solid;
-    animation: spin 2s linear infinite;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
 
 .LoadingMessage {
     width: 252px;
@@ -267,4 +237,10 @@ button[type="submit"] {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.logout-button {
+    position: fixed;  
+    top: 10px;        
+    right: 10px;     
 }
