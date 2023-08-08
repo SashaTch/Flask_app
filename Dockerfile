@@ -13,5 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5000
 
 # run the command
-CMD ["python", "flask_app.py"]
+CMD ["python", "app.py"]
 

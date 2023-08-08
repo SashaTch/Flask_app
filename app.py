@@ -1,30 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin, LoginManager, login_user, logout_user, login_required, current_user
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 import os
-
-db_user=os.getenv('POSTGRES_USER')
-db_password=os.getenv('POSTGRES_PASSWORD')
+from models import db, User
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
+#configuration
+db_user=os.getenv('POSTGRES_USER')
+db_password=os.getenv('POSTGRES_PASSWORD')
 app.secret_key = 'your_secret_key' 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@AppDB:5432/pypetdb'.format(db_user, db_password)
 
-db = SQLAlchemy(app)
-
-class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True)
-    password_hash = db.Column(db.String(128))
-
-    def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
-
+#initialize extension
+db.init_app(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -32,6 +20,8 @@ login_manager.init_app(app)
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+
+#routes
 @app.route('/')
 def login():
     if current_user.is_authenticated:
@@ -76,5 +66,5 @@ def logout():
 
 if __name__ == '__main__':
     with app.app_context():
-        db.create_all()  # Creates database tables. Not suitable for a production environment.
+        db.create_all() #used only in development level
     app.run(host='0.0.0.0', port=5000, debug=True)

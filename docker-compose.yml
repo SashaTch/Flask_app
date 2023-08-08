@@ -1,7 +1,7 @@
 version: "3"
 services:
   postgres:
-    image: postgres:latest
+    build: ./flask_db
     container_name: AppDB
     env_file:
     - .env
@@ -17,7 +17,7 @@ services:
 
   web:
     build: .
-    command: python3 flask_app.py 
+    command: python3 app.py 
     depends_on:
       postgres:
         condition: service_healthy
