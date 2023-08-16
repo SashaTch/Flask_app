@@ -5,6 +5,9 @@ Dockerfile
 Jenkinsfile  
 Jenkinsfile_Docker    
 /scripts
+minikube-linux-amd64
+/__pycache__
+/ansible
 
 #ignore secret  
 .env
