@@ -8,7 +8,7 @@ Jenkinsfile_Docker
 minikube-linux-amd64
 /__pycache__
 /ansible
-
+/k8
 #ignore secret  
 .env
 .gitignore

@@ -1,5 +1,14 @@
 FROM python:3.8
 
+#run essentials
+RUN apt-get clean \
+    && apt-get -y update
+
+RUN apt-get -y install \
+    nginx \
+    python3-dev \
+    build-essential
+
 # set a directory for the app
 WORKDIR /app
 
@@ -13,5 +22,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5000
 
 # run the command
-CMD ["python", "app.py"]
+CMD ["python", "app-no-db.py"]
 
