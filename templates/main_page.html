@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,30 +8,29 @@
     <script src="https://kit.fontawesome.com/8869c37802.js" crossorigin="anonymous"></script>
 </head>
     <body>
-	<audio controls autoplay>
-  		<source src="{{ url_for('static', filename='welcome_sound.mp3') }}" type="audio/mpeg">
-  		Your browser does not support the audio element.
-	</audio>
-
-	<a href="{{ url_for('logout') }}" class="logout-button">
-   	    <i class="fa-solid fa-right-from-bracket fa-xm"></i>
-	</a>
+        <a href="{{ url_for('logout') }}" class="logout-button">
+            <i class="fa-solid fa-right-from-bracket fa-xm"></i>
+        </a>
         <div class="WelcomeUser">
             <div class="WelcomeBox">
                 <div class="WelcomeBanner">Welcome User</div>
             </div>
             <div class="LoadingBox">
                 <div class="LoadingIconBox">
-		    <div class="LoadingComponent">
+                    <div class="LoadingComponent">
+                       <div class="LoadingComponent" id="iconLoader">
                        <i class="fa-solid fa-rotate fa-spin fa-4x" style="color: #f207df;"></i>
-		    </div>
+                    </div>
                 </div>
                 <div class="LoadingMessage">Please Wait While Loading Your Page</div>
             </div>
+            <script>
+                window.onload = function () {
+                document.getElementById('iconLoader').innerHTML = '<a href="{{ url_for("Continue") }}" class="iconPlay"><i class="fa-solid fa-play fa-4x" style="color: #f207df;"></i></a>';
+                }
+            </script>
     </body>
 
 
 
-  
-    
 
