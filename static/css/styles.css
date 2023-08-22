@@ -227,7 +227,6 @@ button[type="submit"] {
     display: inline-flex;
 }
 
-
 .LoadingMessage {
     width: 252px;
     color: #5C5C5C;
@@ -244,3 +243,13 @@ button[type="submit"] {
     top: 10px;        
     right: 10px;     
 }
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+

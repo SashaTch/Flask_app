@@ -19,16 +19,21 @@
                 <div class="LoadingIconBox">
                     <div class="LoadingComponent">
                        <div class="LoadingComponent" id="iconLoader">
-                       <i class="fa-solid fa-rotate fa-spin fa-4x" style="color: #f207df;"></i>
+                       <i class="fa-solid fa-rotate fa-spin fa-4x" style="color: #f207de;"></i>
                     </div>
                 </div>
                 <div class="LoadingMessage">Please Wait While Loading Your Page</div>
             </div>
             <script>
                 window.onload = function () {
-                document.getElementById('iconLoader').innerHTML = '<a href="{{ url_for("Continue") }}" class="iconPlay"><i class="fa-solid fa-play fa-4x" style="color: #f207df;"></i></a>';
+                    setTimeout(function() {
+                        document.getElementById('iconLoader').innerHTML = '<a href="{{ url_for("Continue") }}" class="iconPlay"><i class="fa-solid fa-play fa-4x fade-in" style="color: #f207df;"></i></a>';
+                        const loadingMessage = document.querySelector('.LoadingMessage');
+                        loadingMessage.textContent = "Your profile is ready to use";
+                        loadingMessage.classList.add('fade-in');
+                    }, 1000); 
                 }
-            </script>
+            </script>        
     </body>
 
 
