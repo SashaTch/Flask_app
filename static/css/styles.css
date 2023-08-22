@@ -224,7 +224,16 @@ button[type="submit"] {
     padding-right: 13.31px; 
     justify-content: center; 
     align-items: center; 
-    display: inline-flex;
+    display: inline-flex; 
+    transition: transform 1s ease, opacity 1s ease;
+    transform: scale(1);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.LoadingComponent-hidden {
+    transform: scale(0.8);
+    opacity: 0;
+    transition-delay: 0.3s;
 }
 
 .LoadingMessage {
@@ -236,6 +245,14 @@ button[type="submit"] {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    transition: opacity 2s ease;
+    opacity: 1;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.LoadingMessage-hidden {
+    opacity: 0;
+    transition-delay: 0.5s;
 }
 
 .logout-button {
@@ -244,12 +261,24 @@ button[type="submit"] {
     right: 10px;     
 }
 
-.fade-in {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+.playButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 107px; 
+    height: 107px; 
+    padding-top: 16.71px; 
+    padding-bottom: 16.71px; 
+    padding-left: 13.30px; 
+    padding-right: 13.31px; 
+    justify-content: center; 
+    align-items: center; 
+    display: inline-flex; 
 }
 
-.fade-in.visible {
-    opacity: 1;
-}
 
+.playButton i.fa-solid {
+    font-size: 4em;
+    color: #f207df;
+}

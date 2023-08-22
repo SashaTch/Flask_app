@@ -27,13 +27,28 @@
             <script>
                 window.onload = function () {
                     setTimeout(function() {
-                        document.getElementById('iconLoader').innerHTML = '<a href="{{ url_for("Continue") }}" class="iconPlay"><i class="fa-solid fa-play fa-4x fade-in" style="color: #f207df;"></i></a>';
+                        const iconLoader = document.getElementById('iconLoader');
                         const loadingMessage = document.querySelector('.LoadingMessage');
-                        loadingMessage.textContent = "Your profile is ready to use";
-                        loadingMessage.classList.add('fade-in');
-                    }, 1000); 
+                    
+                        // Create play button and icon
+                        const playButton = document.createElement('button');
+                        playButton.classList.add('playButton');
+                        playButton.innerHTML = '<i class="fa-solid fa-play" style="color: #f207df;"></i>';
+                        
+                        // Event listener for play button (for future use)
+                        playButton.addEventListener('click', () => {
+
+                        });
+
+                        iconLoader.classList.add('LoadingComponent-hidden');
+                        loadingMessage.classList.add('LoadingMessage-hidden');
+
+                        setTimeout(() => {
+                            iconLoader.replaceWith(playButton);
+                        }, 2500); // This value should match the duration of the CSS transition
+                    }, 1000);
                 }
-            </script>        
+            </script>                 
     </body>
 
 
