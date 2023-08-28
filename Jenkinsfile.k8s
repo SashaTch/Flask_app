@@ -1,0 +1,37 @@
+@Library('Logs-OPT')_ 
+pipeline{
+    agent any
+    options {
+        ansiColor('xterm')
+    }
+    stages{
+        stage('Cleanup') {
+            steps {
+                script{
+                    logs.echoStage('Cleanup')
+                    logs.echoGreen('cleaning project\'s directory')
+                    sh 'rm -rf ./*'
+                    logs.echoYellow('cleanup of all unused docker containers, images, data')
+                    sh 'docker image ls --format "{{.ID}}" sashatchern/flask-no-db --filter "dangling=false" | awk "NR>3" | xargs -I {} docker image rm -f {}'
+                    logs.echoYellow('cleaunp stage has been finished')
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                script{
+                    logs.echoStage("Build the App")
+                    logs.echoGreen('cloning repository')
+                    sh 'git clone https://github.com/SashaTch/Flask_app.git >/dev/null 2>&1' //cloning to workspace
+                    logs.echoYellow('cloned the repo to the workspace')
+                    sh "docker build -f /var/lib/jenkins/workspace/test/Flask_app/Dockerfile -t sashatchern/flask:v${env.BUILD_NUMBER} ." //dockered the file
+                    logs.echoYellow('zipped the app\'directory')
+                    logs.echoGreen('The App is ready for uploading')
+                    logs.echoYellow("Current directory: ${PWD}")
+                    logs.echoYellow("List of files:")
+                    sh 'ls'
+                }
+            }
+        }
+    }
+}
