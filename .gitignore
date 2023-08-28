@@ -1,3 +1,18 @@
+# Secrets
 .env
+
+# Byte-compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Local Kubernetes/minikube executables
 minikube-linux-amd64
-/__pycache__
+
+# Log files or temporary files (if any)
+*.log
+*.tmp
+
+# OS generated files
+.DS_Store  
+Thumbs.db

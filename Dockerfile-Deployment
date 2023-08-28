@@ -1,0 +1,29 @@
+FROM python:3.8
+
+# Update and install essentials
+RUN apt-get clean \
+    && apt-get -y update \
+    && apt-get -y install \
+       nginx \
+       python3-dev \
+       build-essential
+
+# Set a directory for the app
+WORKDIR /app
+
+# Copy all the files to the container
+COPY . .
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Set up Nginx
+RUN rm /etc/nginx/sites-enabled/default
+COPY nginx.conf /etc/nginx/sites-available/
+RUN ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled
+
+# Define the port number the container should expose (for Nginx)
+EXPOSE 80
+
+# Use Gunicorn as the entrypoint
+ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:8000", "app-no-db:app"]
