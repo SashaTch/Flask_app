@@ -24,12 +24,23 @@ pipeline{
                     logs.echoGreen('cloning repository')
                     sh 'git clone https://github.com/SashaTch/Flask_app.git >/dev/null 2>&1' //cloning to workspace
                     logs.echoYellow('cloned the repo to the workspace')
-                    sh "docker build -f /var/lib/jenkins/workspace/test/Flask_app/Dockerfile -t sashatchern/flask:v${env.BUILD_NUMBER} ." //dockered the file
+                    sh "docker build -f /var/lib/jenkins/workspace/test/Flask_app/Dockerfile -t sashatchern/flask-no-db:v${env.BUILD_NUMBER} ." //dockered the file
                     logs.echoYellow('zipped the app\'directory')
                     logs.echoGreen('The App is ready for uploading')
                     logs.echoYellow("Current directory: ${PWD}")
                     logs.echoYellow("List of files:")
                     sh 'ls'
+                }
+            }
+        }
+        stage('Initialize') {
+            steps {
+                script {
+                    logs.echoStage("Initialize to K8")
+                    KUBECONFIG = credentials('kubeconfig-secret')
+                    sh "sed -i 's | sashatchern/flask-no-db:v | sashatchern/flask-no-db:v${env.BUILD_NUMBER} |' ${PWD}/Flask_app/k8/deployment.yml"
+                    kubectl -f ${PWD}/Flask_app/k8/deployment.yml
+                    kubectl -f ${PWD}/Flask_app/K8/service.yml
                 }
             }
         }
