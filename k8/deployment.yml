@@ -18,3 +18,5 @@ spec:
       containers:
       - name: pypet
         image: sashatchern/flask-no-db:v
+        ports:
+        - containerPort: 5000
