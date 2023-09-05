@@ -16,7 +16,7 @@ WORKDIR /app
 COPY . .
 
 # install dependencies
-RUN pip install --no-cache-dir -r /app/Flask_app/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 # define the port number the container should expose
 EXPOSE 5000
 
@@ -24,5 +24,5 @@ EXPOSE 5000
 ENV FLASK_ENV = development
 
 # run the command
-CMD ["python", "/app/app-no-db.py"]
+CMD ["python", "app-no-db.py"]
 
