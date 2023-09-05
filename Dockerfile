@@ -24,5 +24,5 @@ EXPOSE 5000
 ENV FLASK_ENV = development
 
 # run the command
-CMD ["python", "app-no-db.py"]
+CMD ["python", "/app/app-no-db.py"]
 
