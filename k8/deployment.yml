@@ -1,6 +1,6 @@
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployments
 metadata:
   name: pypet-deployment
   labels:
@@ -17,4 +17,4 @@ spec:
     spec:
       containers:
       - name: pypet
-        image: sashatchern/flask-no-db:v1
+        image: sashatchern/flask-no-db:v
