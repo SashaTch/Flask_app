@@ -51,6 +51,7 @@ pipeline{
                         sh 'kubectl apply -f ./Flask_app/k8/deployment.yml'
                         sh 'kubectl apply -f ./Flask_app/k8/service.yml'
                     }
+                    slackSend (color: '#00FF00', message: "Build Successful: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
                 }
             }
         }
