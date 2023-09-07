@@ -1,4 +1,4 @@
-@Library('Logs-OPT')_ 
+@Library('Logs_OPT')_ 
 pipeline{
     agent any
     options {
@@ -10,6 +10,7 @@ pipeline{
                 script{
                     logs.echoStage('Cleanup')
                     logs.echoGreen('cleaning project\'s directory')
+                    sh 'pwd'
                     sh 'rm -rf ./*'
                     logs.echoYellow('cleanup of all unused docker containers, images, data')
                     sh 'docker image ls --format "{{.ID}}" sashatchern/flask-no-db --filter "dangling=false" | awk "NR>3" | xargs -I {} docker image rm -f {}'
@@ -21,15 +22,23 @@ pipeline{
             steps {
                 script{
                     logs.echoStage("Build the App")
-                    logs.echoGreen('cloning repository')
-                    sh 'git clone https://github.com/SashaTch/Flask_app.git >/dev/null 2>&1' //cloning to workspace
-                    logs.echoYellow('cloned the repo to the workspace')
-                    sh "docker build -f /var/lib/jenkins/workspace/test/Flask_app/Dockerfile -t sashatchern/flask-no-db:v${env.BUILD_NUMBER} ." //dockered the file
-                    logs.echoYellow('zipped the app\'directory')
-                    logs.echoGreen('The App is ready for uploading')
-                    logs.echoYellow("Current directory: ${PWD}")
-                    logs.echoYellow("List of files:")
-                    sh 'ls'
+                    logs.echoYellow("cloning repository")
+                    logs.echoYellow("Current directory+files: ${PWD}")
+                    sh "git clone https://github.com/SashaTch/Flask_app.git >/dev/null 2>&1" //cloning to workspace
+                    logs.echoYellow("building the app to an image")
+                    sh "ls /var/lib/jenkins/workspace/Project-k8/Flask_app"
+                    sh "cd /var/lib/jenkins/workspace/Project-k8/Flask_app && docker build -f Dockerfile -t sashatchern/flask-no-db:v${env.BUILD_NUMBER} ." //dockered the file
+                    logs.echoGreen("The App is ready for uploading")
+                }
+            }
+        }
+        stage('Upload') {
+            steps{
+                script {
+                    logs.echoStage("Uploading")
+                    logs.echoYellow("Uploading to Dockerhub")
+                    sh "docker push sashatchern/flask-no-db:v${env.BUILD_NUMBER}"
+                    logs.echoGreen("Uploaded succefully")
                 }
             }
         }
@@ -37,10 +46,11 @@ pipeline{
             steps {
                 script {
                     logs.echoStage("Initialize to K8")
-                    KUBECONFIG = credentials('kubeconfig-secret')
-                    sh "sed -i 's | sashatchern/flask-no-db:v | sashatchern/flask-no-db:v${env.BUILD_NUMBER} |' ${PWD}/Flask_app/k8/deployment.yml"
-                    kubectl -f ${PWD}/Flask_app/k8/deployment.yml
-                    kubectl -f ${PWD}/Flask_app/K8/service.yml
+                    sh "sed -i 's#sashatchern/flask-no-db:v#sashatchern/flask-no-db:v${env.BUILD_NUMBER}#' ./Flask_app/k8/deployment.yml"
+                    withEnv(["KUBECONFIG = /var/lib/jenkins/.kube/config"]) {
+                        sh 'kubectl apply -f ./Flask_app/k8/deployment.yml'
+                        sh 'kubectl apply -f ./Flask_app/k8/service.yml'
+                    }
                 }
             }
         }
