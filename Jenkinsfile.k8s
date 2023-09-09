@@ -17,6 +17,11 @@ pipeline{
                     logs.echoYellow('cleaunp stage has been finished')
                 }
             }
+            post {
+                failure {
+                    slackSend (color: '#FF0000', message: "FAILED: Cleanup stage failed.")
+                }
+            }
         }
         stage('Build') {
             steps {
@@ -31,6 +36,11 @@ pipeline{
                     logs.echoGreen("The App is ready for uploading")
                 }
             }
+            post {
+                failure {
+                    slackSend (color: '#FF0000', message: "FAILED: Build stage failed.")
+                }
+            }
         }
         stage('Upload') {
             steps{
@@ -39,6 +49,11 @@ pipeline{
                     logs.echoYellow("Uploading to Dockerhub")
                     sh "docker push sashatchern/flask-no-db:v${env.BUILD_NUMBER}"
                     logs.echoGreen("Uploaded succefully")
+                }
+            }
+            post {
+                failure {
+                    slackSend (color: '#FF0000', message: "FAILED: Upload stage failed.")
                 }
             }
         }
@@ -52,6 +67,11 @@ pipeline{
                         sh 'kubectl apply -f ./Flask_app/k8/service.yml'
                     }
                     slackSend (color: '#00FF00', message: "Build Successful: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
+                }
+            }
+            post {
+                failure {
+                    slackSend (color: '#FF0000', message: "FAILED: Initialization stage failed.")
                 }
             }
         }
