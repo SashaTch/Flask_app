@@ -1,6 +1,7 @@
 # Secrets
 .env
 *.env
+google.json
 
 # Byte-compiled Python files
 __pycache__/
