@@ -13,6 +13,7 @@ minikube-linux-amd64
 #ignore secret  
 .env
 .gitignore
+*.env
 
 #ignore files
 *.yml
