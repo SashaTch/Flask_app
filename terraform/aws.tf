@@ -20,22 +20,26 @@ resource "google_container_cluster" "primary" {
     initial_node_count = 1
 
     master_auth {
-      username = ""
-      password = ""
+      client_certificate_config {
+        issue_client_certificate = false 
+      }
     }
 
+    node_config {
+      service_account = "pypet-admin@pypet-k8.iam.gserviceaccount.com"
+    }
 }
 
 resource "google_container_node_pool" "primary_nodes" {
-    name = gke-node-pypet
-    cluster = google_container_cluster.primary.gke-cluster-pypet
+    name = "gke-node-pypet"
+    cluster = google_container_cluster.primary.name
     node_count = 1
 
     node_config {
       preemptible = true
       machine_type = "e2-medium"
-      service_account = google_service_account.pypet-admin@pypet-k8.iam.gserviceaccount.com
-      oauto_oauth_scopes = [
+      service_account = "pypet-admin@pypet-k8.iam.gserviceaccount.com"
+      oauth_scopes = [
         "https://www.googleapis.com/auth/logging.write",
         "https://www.googleapis.com/auth/monitoring",
       ]

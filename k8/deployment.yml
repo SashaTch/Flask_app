@@ -3,20 +3,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pypet-deployment
+  namespace: pypet-app
   labels:
-    app: pypet
+    app: pypet-app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: pypet
+      app: pypet-app
   template:
     metadata:
       labels:
-        app: pypet
+        app: pypet-app
     spec:
       containers:
-      - name: pypet
-        image: sashatchern/flask-no-db:v
+      - name: pypet-container
+        image: sashatchern/flask-no-db:v68
         ports:
         - containerPort: 5000
