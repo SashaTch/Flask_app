@@ -24,3 +24,11 @@ google.json
 
 # Miscellaneous
 README.md
+
+# OS generated files
+.DS_Store  
+Thumbs.db
+terraform/.terraform/*  
+*.backup
+*.tfstate
+*.hcl

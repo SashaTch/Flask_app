@@ -68,6 +68,10 @@ def process():
 def main_page():
     return render_template('main_page.html', username=current_user.username)
 
+@app.route('/app_page')
+def app_page():
+    return render_template('/app_page.html', username=current_user.username)
+
 @app.route('/logout')
 def logout():
     logout_user()

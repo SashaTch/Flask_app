@@ -64,6 +64,9 @@
                     });
                     }, 1000); // Wait for 1 second before starting the animations
                 }
+                document.getElementById('SunIcon').addEventListener('click', () => {
+                    window.location.href = "{{ url_for('app_page') }}";
+                });
             </script>
         </div>
     </body>

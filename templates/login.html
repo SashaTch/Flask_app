@@ -10,31 +10,28 @@
 <title>Login Page</title>
 </head>
 <body>
-    <div class="App">
-        <div class="Loginbox">
-            <div class="LoginProfileIco" style="background-image: url({{ url_for('static', filename='images/Login_Profile.ico') }});"> </div>
-            <form method="POST" action="/process">
-                <div class="PassUserPrompt">
-                    <div class="UsernamePrompt">
-                        <i class="fa-solid fa-user fa-lg"></i>
-                        <input type="text" id="username" name="username" class="Username" placeholder="Username:" required />
-                    </div>
-                    <div class="PasswordPrompt">
-                        <i class="fa-solid fa-lock fa-lg"></i>
-                        <input type="password" id="password" name="password" class="Password" placeholder="Password:" required />
-                    </div>
+    <div class="Loginbox">
+        <div class="LoginProfileIco" style="background-image: url({{ url_for('static', filename='images/Login_Profile.ico') }});"> </div>
+        <form method="POST" action="/process">
+            <div class="PassUserPrompt">
+                <div class="UsernamePrompt">
+                    <i class="fa-solid fa-user fa-lg"></i>
+                    <input type="text" id="username" name="username" class="Username" placeholder="Username:" required />
                 </div>
-                 <div class="SignupSigninButtons">
-                    <div class="SigninButton">
-                        <button type="submit" name="action" value="Sign In" class="SignIn">Sign In</button>
-                    </div>
-                    <div class="SignupButton">
-                        <button type="submit" name="action" value="Sign Up" class="SignUp">Sign Up</button>
-                    </div>
+                <div class="PasswordPrompt">
+                    <i class="fa-solid fa-lock fa-lg"></i>
+                    <input type="password" id="password" name="password" class="Password" placeholder="Password:" required />
                 </div>
-            </form>
-        </div>
+            </div>
+            <div class="SignupSigninButtons">
+                <div class="SigninButton">
+                    <button type="submit" name="action" value="Sign In" class="SignIn">Sign In</button>
+                </div>
+                <div class="SignupButton">
+                    <button type="submit" name="action" value="Sign Up" class="SignUp">Sign Up</button>
+                </div>
+            </div>
+        </form>
     </div>
 </body>
-
 </html>

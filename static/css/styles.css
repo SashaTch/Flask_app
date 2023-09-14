@@ -5,6 +5,10 @@ body {
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 body, html {
@@ -30,7 +34,7 @@ body {
 
 
 /* App frame styles */
-.App {
+/*.App {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,7 +42,7 @@ body {
     width: 100%;
     height: 100%;
 }
-
+*/
 
 /* Login box styles */
 .Loginbox {
@@ -325,4 +329,36 @@ button[type="submit"] {
 
 #SunIcon {
     animation: riseSun 2s forwards;
+}
+
+
+/* ============  app_page  ============= */
+
+.App_Frame {
+    width: 100%; 
+    height: 100%; 
+    position: relative; 
+    border-radius: 16px; 
+    overflow: hidden
+}
+
+.Profile_Frame {
+    width: 244px;
+    height: 1080px;
+    flex-shrink: 0;
+    background: #2C2F48;
+    box-shadow: 1px 0px 0px 0px rgba(255, 255, 255, 0.10) inset;
+    position: relative;
+}
+
+.Content_Frame {
+    width: 1360px; 
+    height: 1076px; 
+    position: relative
+}
+
+.Side_Menu {
+    width: 316px; 
+    height: 1080px; 
+    position: relative
 }

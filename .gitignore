@@ -18,3 +18,7 @@ minikube-linux-amd64
 # OS generated files
 .DS_Store  
 Thumbs.db
+terraform/.terraform/*  
+*.backup
+*.tfstate
+*.hcl
