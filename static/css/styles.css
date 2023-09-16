@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Six+Caps&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-image: url('../images/BG.png');
     background-position: center;
@@ -12,8 +17,11 @@ body {
 }
 
 body, html {
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 /* Form properities */
@@ -337,28 +345,130 @@ button[type="submit"] {
 .App_Frame {
     width: 100%; 
     height: 100%; 
-    position: relative; 
-    border-radius: 16px; 
-    overflow: hidden
+    box-sizing: border-box; 
+    display: flex;
+    overflow: hidden;
+     
 }
 
 .Profile_Frame {
-    width: 244px;
-    height: 1080px;
+    width: 15%;
+    height: 100%;
     flex-shrink: 0;
     background: #2C2F48;
     box-shadow: 1px 0px 0px 0px rgba(255, 255, 255, 0.10) inset;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.Action_Frame {
+    display: flex;
+    flex-direction: row;
+    padding: 8px 12px 12px 12px;
+    justify-content: space-around;
+    align-items: center;
+    height: 5%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.00);
+    box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.10) inset;
+    gap: 20px;
+}
+.Action_Frame img {
+    max-width: 80%;
+    max-height: 80%;
+    margin-right: 5%;
+}
+
+.svg-container-profile {
+    position: relative;
+    width: 100%; 
+    height: 30%; 
+    align-items: center;
+    margin: 20px auto 0 auto;
+}
+
+.svg-container-profile img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 75%;
+    height: 75%;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%; 
+}
+
+.Notifications_Frame {
+    width: 100%; 
+    height: 18%; 
+    position: relative; 
+    overflow: hidden; 
+    border-top: dashed;
+    border-bottom: dashed;
+    border-color: #9747FF;
+    border-width: 1px;
+    padding: 20px; 
+}
+
+.Notifications_Subframe {
+    width: 80%; 
+    position: relative; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    gap: 10px;
+}
+
+.Title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+}
+
+.ECT, .SeeAll {
+    font-size: 15px; 
+    font-family: Lato; 
+    font-weight: 400; 
+    word-wrap: break-word;
+}
+
+.ECT {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.SeeAll {
+    color: rgba(255, 255, 255, 0.25);
+    text-align: right;
+}
+
+.Messages {
+    width: 100%; 
+    height: 135px;
+    border-color: #9747FF;
+    position: relative; 
+    background-color: rgba(255, 255, 255, 0.30); 
+    border-radius: 5px
+    
 }
 
 .Content_Frame {
-    width: 1360px; 
-    height: 1076px; 
+    width: 70%; 
+    height: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 3px solid #1C4D6A;
+    display: flex;
     position: relative
 }
 
 .Side_Menu {
-    width: 316px; 
-    height: 1080px; 
+    width: 15%;
+    height: 100%; 
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+    border: 3px solid #1C4D6A;
+    display: flex;
     position: relative
 }
