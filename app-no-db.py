@@ -44,7 +44,7 @@ def load_user(user_id):
 @app.route('/')
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('main_page'))
+        return redirect(url_for('loading_page'))
     return render_template('login.html')
 
 @app.route('/process', methods=['POST'])
@@ -57,20 +57,20 @@ def process():
         if username == admin_user.username and admin_user.check_password(password):
             admin_user.authenticated = True
             login_user(admin_user)
-            return redirect(url_for('main_page'))
+            return redirect(url_for('loading_page'))
         else:
             return render_template('login.html', error='Invalid credentials. Please try again.')
     else:
         return redirect(url_for('login'))
 
-@app.route('/main_page')
+@app.route('/loading_page')
 @login_required
-def main_page():
-    return render_template('main_page.html', username=current_user.username)
+def loading_page():
+    return render_template('loading_page.html', username=current_user.username)
 
 @app.route('/app_page')
 def app_page():
-    return render_template('/app_page.html', username=current_user.username)
+    return render_template('app_page.html', username=current_user.username)
 
 @app.route('/logout')
 def logout():
