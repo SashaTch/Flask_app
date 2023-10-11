@@ -8,18 +8,40 @@
     <script src="https://kit.fontawesome.com/8869c37802.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="App_Frame">
-        <div class="Side_Menu">
-        </div>
-        <div class="Content_Frame">
-        </div>
-        <div class="Profile_Frame">
+    <main class="App_Frame">
+        <section class="Side_Menu">
+            <div class="Side_Shortcuts">
+                
+            </div>
+            <div class="Side_Categories">
+
+            </div>
+        </section>
+        <section class="Content_Frame">
+            <div class="Top_Bar">
+                <div class="Search_Bar">
+                    <input type="text" placeholder="Explore..." class="search-input">
+                    <div class="search-icon-container">
+                        <img src="{{ url_for('static', filename='images/Search_Glass.svg')}}">
+                    </div>
+                </div>  
+            </div>
+        </section>
+
+        <!-- 
+            Start of the right side frame consists mainly of the users profile
+        -->
+        <section class="Profile_Frame">
+
+            <!-- Top Right Bar setting/profile/notifications/chat.... -->
             <div class="Action_Frame">
                 <img src="{{ url_for('static', filename='images/Profile_Action.svg')}}" alt="Profile">
                 <img src="{{ url_for('static', filename='images/Bell_Action.svg')}}" alt="Bell: Notifications/Mail">
                 <img src="{{ url_for('static', filename='images/Chat_Action.svg')}}" alt="Chat">
                 <img src="{{ url_for('static', filename='images/Setting_Action.svg')}}" alt="Settings">
             </div>
+
+            <!-- Profile Photo and Social Platforms Tags-->
             <div class="svg-container-profile">
                 {% for i in range(20) %}
                     <img src="{{ url_for('static', filename='images/Polygon.svg') }}" alt="SVG Image" style="position: absolute; top: 40%; left: 50%; width: 75%; height: 75%; transform: translate(-50%, -50%) rotate({{ i * 15 }}deg); transform-origin: 50% 50%;">
@@ -29,8 +51,10 @@
                 </div>
                 <div class="SashaTchern" style="text-align: center; position: absolute; bottom: 30px; width: 100%; color: white; font-size: 17px; font-family: Lato; font-weight: 700; word-wrap: break-word">Sasha Tchern</div>
                 <div class="SashaTchern" style="text-align: center; position: absolute; bottom: 10px; width: 100%; color: rgba(255, 255, 255, 0.25); font-size: 15px; font-family: Lato; font-weight: 400; word-wrap: break-word">@Sasha_Tchern</div>
-            </div>    
-            <div class="Notifications_Frame">
+            </div>
+            
+            <!-- Notifications and Messages Section -->
+            <aside class="Notifications_Frame">
                 <div class="Notifications_Subframe">
                     <div class="Title">
                         <div class="ECT">Notifications</div>
@@ -39,10 +63,17 @@
                     <div class="Messages">
                     </div>
                 </div>
-            </div>
-            <div class="Ai_Support_Widget">
+            </aside>
+            
+            <!-- Ai Widget -->
+            <aside class="Ai_Support_Widget">
                 <img src="{{ url_for('static', filename='images/Ai_Support.svg') }}" alt="SVG Image" style="bottom: 20px; left: 50%; position: absolute; transform: translateX(-50%);">
-            </div>
-        </div>
-    </div>
+            </aside>
+
+        </section>
+        <!-- 
+            End of the Profile Frame Section
+        -->
+        
+    </main>
 </body>
